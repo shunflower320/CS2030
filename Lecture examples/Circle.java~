@@ -1,0 +1,29 @@
+public class Circle{
+    private Point centre; 
+    protected double radius; //allows children to inherit, but not public
+
+    public Circle() { } //only if super() is to be used in subclass
+
+    public Circle(Point point, double radius){
+        this.radius = radius;
+        this.centre = point; //if radius was not declared before, then here it would be auto-assigned as object attribute
+    }
+    
+    public boolean contains(Point point){
+        return this.centre.distance(point) <= this.radius;
+    }
+
+    public static void main(String[] args){
+        Circle circle = new Circle(new Point(0, 0), 1.0);
+        Point point = new Point(1, 1);
+
+        double area = 3.14*circle.radius*circle.radius;
+        
+        double perimeter = 2*3.14*circle.radius;
+
+       //System.out.println(circle.contains(point));
+
+       System.out.println("Circle with area "+area+" and perimeter "+perimeter);
+    }
+}
+
