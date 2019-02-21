@@ -10,13 +10,13 @@ class Main {
         formatters.add(new Pascal());
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
-
-        TextEditor editor = new TextEditor(formatters);
+            TextEditor editor = new TextEditor(formatters);
             String[] line = sc.nextLine().split(" ");
             for (String s: line) {
                 editor.addString(s);
             }
-            editor.printAll();
+            editor.addAll();
         }
+        TextEditor.printAll();
     }
 }

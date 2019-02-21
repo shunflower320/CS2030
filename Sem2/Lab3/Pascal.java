@@ -25,4 +25,21 @@ class Pascal implements TextFormatter {
     public String formatLast() {
         return format();
     }
+
+    public String toString() {
+        return this.result;
+    }
+
+    public int compareTo(TextFormatter t2) {
+        return toAscii().compareTo(t2.toAscii());
+    }
+
+    public Integer toAscii() {
+        int total = 0;
+        char[] letters = this.result.toCharArray();
+        for (char ch: letters) {
+            total += Character.hashCode(ch);
+        }
+        return total;
+    }
 }
