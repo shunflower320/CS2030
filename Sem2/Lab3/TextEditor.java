@@ -3,6 +3,7 @@ import java.lang.StringBuilder;
 import java.util.List;
 
 class TextEditor {
+    private static List<String> results = new ArrayList<>();
     private StringBuilder newString = new StringBuilder();
     private List<TextFormatter> formatters;
     private List<String> strings = new ArrayList<>();
@@ -21,11 +22,12 @@ class TextEditor {
             for (String s: strings) {
                 if (s == strings.get(strings.size() - 1)) {
                     s = s.toLowerCase();
-                    System.out.println(s);
+                    formatter = formatter.clone(s);
+                    System.out.println(formatter.formatLast());
                 } else {
                     s = s.toLowerCase();
                     formatter = formatter.clone(s);
-                    System.out.print(formatter.format());
+                    formatter.format();
                 }
             }
         }
